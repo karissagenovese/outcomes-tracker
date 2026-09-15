@@ -183,6 +183,17 @@
   </style>
 </head>
 <body>
+<script>
+// Demo banner — shown when CONFIG.demo is true
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof CONFIG !== 'undefined' && CONFIG.demo) {
+    const banner = document.createElement('div');
+    banner.style.cssText = 'background:#f59e0b;color:#000;text-align:center;padding:10px 16px;font-size:13px;font-weight:600;position:sticky;top:0;z-index:9999;';
+    banner.innerHTML = '📋 This is a template demo with illustrative data — not a real person\'s outcomes. Clone your own at <a href="https://github.com/karissagenovese/outcomes-tracker" style="color:#000;text-decoration:underline;">github.com/karissagenovese/outcomes-tracker</a>';
+    document.body.prepend(banner);
+  }
+});
+</script>
 
 <!-- ═══════════════════════════════════════════════════════════════════════════
      CONFIG — edit this section. Everything else renders automatically.
@@ -207,6 +218,7 @@ const CONFIG = {
   targetLevel: 'C8',        // optional — shows "C7 → C8" in header
   org: 'Your Team',                   // ← replace with your team name
   cycle: null,              // auto-detected from date (Apr–Oct or Nov–Apr) — or set manually e.g. 'Apr–Oct 2026'
+  demo: true,                // set to false (or delete) for your personal site — true shows a "template demo" banner
 
   // ── Context blurb ───────────────────────────────────────────────────────────
   // Shown in sidebar. Helps newer managers understand your full background.
@@ -1463,7 +1475,10 @@ function setupImportModal() {
   // Auto-fill identity from quick.id if not configured
   let visitorEmail = '';
   try {
-    const user = await quick.id.get();
+    const user = await Promise.race([
+      quick.id.get(),
+      new Promise(resolve => setTimeout(() => resolve({}), 2000))
+    ]);
     if (!CONFIG.name && user.name) name = user.name;
     if (!CONFIG.email && user.email) email = user.email;
     visitorEmail = user.email || '';
