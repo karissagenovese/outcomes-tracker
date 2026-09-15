@@ -60,10 +60,13 @@ Click "Connect GitHub" in the PR section. You'll need a Personal Access Token wi
 
 ## Skills frameworks
 
-The site auto-loads the right OS skills based on your discipline:
-- **TPM** — direct from `vault.shopify.io/disciplines/351-Technical-Program-Management`
-- **SWE** — direct from `vault.shopify.io/disciplines/145-Software-Engineering`
-- **Product** — direct from `vault.shopify.io/disciplines/Product-Management`
+Skills are baked in from [os.shopify.io](https://os.shopify.io) for these disciplines:
+- **TPM** — Technical Program Management
+- **SWE** — Software Engineering
+- **Product** — Product Management
+- **Design** — Product Design
+- **Marketing** — Growth Marketing
+- **Custom** — paste in your own skills from [os.shopify.io](https://os.shopify.io) if your discipline isn't listed
 
 By default only your current level's skills are shown. Set `targetLevel` to one level above to also see those skills (dimmed) — useful if you're working toward a scope change.
 
