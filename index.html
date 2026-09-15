@@ -1505,8 +1505,12 @@ function setupImportModal() {
     }
   }
 
-  try { await initDb(); } catch(e) { setSaveStatus('saved', 'Saved locally'); }
-  await initGitHubToken();
+  try {
+    await Promise.race([initDb(), new Promise(r => setTimeout(r, 3000))]);
+  } catch(e) { setSaveStatus('saved', 'Saved locally'); }
+  try {
+    await Promise.race([initGitHubToken(), new Promise(r => setTimeout(r, 2000))]);
+  } catch(e) {}
 
   renderHeader(name, email);
   renderIOs();
