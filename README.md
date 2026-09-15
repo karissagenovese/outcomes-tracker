@@ -104,4 +104,4 @@ Share this GitHub link with colleagues — they clone it and set up their own. Y
 
 ## Questions
 
-Open an issue in the repo or reach out to Karissa Genovese.
+Open an issue in the repo.
