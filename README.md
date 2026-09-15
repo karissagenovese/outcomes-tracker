@@ -17,9 +17,21 @@ Open `SCAN-PROMPT.md`, fill in your name, IOs, OS skills, and what to scan, then
 
 For your OS skills: go to [os.shopify.io](https://os.shopify.io) → find your discipline → copy the skills for your level → paste them into the prompt. LLMs with Vault access (MANA, Claude, Pi) can pull them automatically.
 
-## Setup — 5 minutes
+## Setup
 
-### 1. Clone the template
+### Option A — Let an LLM do it (easiest)
+
+If you use Pi, Claude, or MANA with tool access, just say:
+
+> “Set up the outcomes tracker for me: github.com/karissagenovese/outcomes-tracker”
+
+Tell it your discipline, level, team, and IOs. It clones the repo, fills in your CONFIG, and deploys your site. Done.
+
+The `.pi/skills/outcomes-setup/SKILL.md` in this repo has the full instructions for the LLM.
+
+### Option B — Do it yourself (5 minutes)
+
+#### 1. Clone the template
 
 ```bash
 git clone https://github.com/karissagenovese/outcomes-tracker
