@@ -11,6 +11,20 @@ A self-updating evidence site for Shopify employees to track their Intended Outc
 - Includes a context blurb for newer managers who don't have your historical background
 - Saves state to `quick.db` (cross-device) with localStorage fallback
 
+## Where this actually helps
+
+**Consistency over time.** Each skill entry is dated and sourced. By end of cycle you can show a pattern — not one impressive moment, but repeated evidence across months that you reliably operate at your level. That's what calibration actually looks at.
+
+**Specificity over vagueness.** "I'm good at stakeholder alignment" vs. "On March 12 I ran a sync between Engineering and GTM that unblocked the UK EA launch decision — see the Fellow transcript." The scan returns the second kind. Specifics are defensible; generalities aren't.
+
+**No scrambling at review time.** Most people reconstruct six months of work in a week. This system accumulates evidence continuously — so when calibration arrives, the work is already documented, not excavated.
+
+**Equal footing in calibration conversations.** Your manager sees the same evidence you do, organized the same way. It shifts the conversation from "tell me what you did" to "let's discuss the impact of what you did."
+
+**Onboarding new managers fast.** The context blurb and evidence log give a manager who joined mid-cycle full visibility into your work before their first 1:1. They're not relying on secondhand accounts or recency bias.
+
+**Surfaces breadth you'd forget to mention.** The scan pulls from Slack, Fellow transcripts, Vault decisions, GitHub, and email. Work you did in a cross-team sync six weeks ago, a pushback you gave in a design review, a risk you surfaced in a Slack thread — all of it shows up if it was documented anywhere.
+
 ## What this doesn't do — be honest about this
 
 **This tool lowers the cost of not forgetting. It doesn't write your review.**
