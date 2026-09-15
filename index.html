@@ -205,7 +205,7 @@ const CONFIG = {
                              // Full frameworks at os.shopify.io
   level: 'C7',              // e.g. 'C5' 'C6' 'C7' 'C8' 'C9'
   targetLevel: 'C8',        // optional — shows "C7 → C8" in header
-  org: 'Your Team',
+  org: 'Your Team',                   // ← replace with your team name
   cycle: null,              // auto-detected from date (Apr–Oct or Nov–Apr) — or set manually e.g. 'Apr–Oct 2026'
 
   // ── Context blurb ───────────────────────────────────────────────────────────
@@ -219,30 +219,35 @@ Example: 4 years at Shopify. Previously managed a TPM org of 6 (hired Amy, Miche
   // 2–4 IOs, as agreed with your manager at the start of the cycle.
   intendedOutcomes: [
     {
-      title: 'Your first intended outcome',
-      type: 'IC',                    // 'IC' or 'Manager'
-      tags: ['Core scope'],          // e.g. ['Core scope', 'Cross-team mission', 'Stretch']
-      status: 'in-progress',         // 'not-started' | 'in-progress' | 'strong'
-      deadline: null,                // ISO date, e.g. '2026-10-01'
-      outcome: 'Describe the full scope of what you own — programs, partners, countries, teams.',
-      success: 'Specific, measurable deliverables. What does done look like?',
-      why: 'Why does this matter at the Shopify strategy level?',
-      stakeholders: [],              // e.g. ['Erik L\'Abbe — PM', 'Robin Fontaine — PMM']
-      vaultLinks: [],                // e.g. [{ label: 'Project name', url: 'https://vault.shopify.io/...', status: 'on_track' }]
-      improvements: [],              // Pre-seed with entries, or leave empty and add live
+      title: 'Ship [your program] on time and at quality',
+      type: 'IC',
+      tags: ['Core scope'],
+      status: 'in-progress',
+      deadline: '2026-10-01',
+      outcome: 'Own end-to-end delivery of [program name] — cross-functional alignment, dependency tracking, launch readiness across [teams/partners].',
+      success: 'GA by [date]. All exit criteria met. Partner sign-off complete. No P0 issues at launch.',
+      why: 'This program is on the H2 roadmap and directly enables [strategic bet]. Slip = revenue impact.',
+      stakeholders: ['[PM] — Product', '[Eng Lead] — Engineering', '[PMM] — GTM'],
+      vaultLinks: [{ label: 'Project', url: 'https://vault.shopify.io/gsd/projects/...', status: 'on_track' }],
+      improvements: [
+        { date: '2026-07-15', skill: 'r-dependencies', signal: 'SOLID', text: 'Identified a 3-week slip risk in [dependency] before it was on anyone else\'s radar. Escalated to PM and Eng lead, proposed a mitigation that moved the date back by only one week. Documented in Vault.', source: 'vault', sourceRef: 'https://vault.shopify.io/gsd/projects/...' },
+        { date: '2026-08-22', skill: 'r-align', signal: 'SOLID', text: 'Ran cross-functional sync with 4 teams to resolve conflicting timelines on [milestone]. Came out with a decision and updated RACI. No one else was driving this.', source: 'fellow', sourceRef: 'Fellow transcript — Aug 22 sync' },
+      ],
     },
     {
-      title: 'Your second intended outcome',
+      title: 'Expand [capability] to [scope]',
       type: 'IC',
-      tags: ['Contributor'],
+      tags: ['Cross-team mission', 'Stretch'],
       status: 'not-started',
       deadline: null,
-      outcome: 'What is the outcome you own or contribute to?',
-      success: 'What does done look like? Deadline, metrics, sign-offs.',
-      why: 'Why does this matter beyond your team?',
-      stakeholders: [],
+      outcome: 'Champion [expansion initiative] — blueprint for future launches, compliance critical path, partner coordination.',
+      success: '[Country/feature] live by [date]. Compliance signed off. Playbook documented for reuse.',
+      why: 'First of its kind at Shopify in this domain. Sets the pattern for how we expand going forward.',
+      stakeholders: ['[PM]', '[Legal/Compliance]', '[GTM Lead]'],
       vaultLinks: [],
-      improvements: [],
+      improvements: [
+        { date: '2026-09-10', skill: 'c-selfrely', signal: 'SOLID', text: 'Pulled together the compliance requirement matrix independently before any legal review was scheduled — surfaced the Sept 28 cutoff date that the team didn\'t know about. This changed the project timeline.', source: 'slack', sourceRef: '#channel — Sept 10' },
+      ],
     },
     {
       title: 'Craft growth & AI fluency',
