@@ -22,14 +22,8 @@ For your OS skills: go to [os.shopify.io](https://os.shopify.io) → find your d
 ### 1. Clone the template
 
 ```bash
-quick remix outcomes-tracker my-outcomes-2026
-```
-
-Or clone the repo and deploy:
-```bash
-git clone https://github.com/Shopify/outcomes-tracker
+git clone https://github.com/karissagenovese/outcomes-tracker
 cd outcomes-tracker
-quick deploy my-outcomes-2026
 ```
 
 ### 2. Edit `index.html` — the CONFIG block at the top
@@ -49,10 +43,10 @@ Open `index.html` and fill in the `CONFIG` object. It's clearly marked. The fiel
 ### 3. Deploy
 
 ```bash
-quick deploy
+quick deploy . your-name-outcomes-2026
 ```
 
-Your site is live at `my-outcomes-2026.quick.shopify.io`.
+Your site is live at `your-name-outcomes-2026.quick.shopify.io`.
 
 ### 4. Run the scan weekly
 
