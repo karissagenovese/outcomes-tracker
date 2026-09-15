@@ -191,7 +191,7 @@ const CONFIG = {
   // Leave name/email null to auto-fill from quick.id (Shopify SSO)
   name: null,
   email: null,
-  discipline: 'TPM',        // 'TPM' | 'SWE' | 'Product'
+  discipline: 'TPM',        // 'TPM' | 'SWE' | 'Product' | 'Design' | 'Marketing' | 'Custom'
   level: 'C7',              // e.g. 'C5' 'C6' 'C7' 'C8' 'C9'
   targetLevel: 'C8',        // optional — shows "C7 → C8" in header
   org: 'Your Team',
@@ -376,6 +376,133 @@ const SKILLS_BY_DISCIPLINE = {
     }
   },
 
+  Design: {
+    craft: {
+      label: 'Craft Skills',
+      items: [
+        { id:'c-compelling', lvl:'C4', text:'Craft visually compelling solutions — treat the design system as a starting point, not a ceiling' },
+        { id:'c-explore',    lvl:'C4', text:'Explore a range of directions, compare tradeoffs, and converge on the best solution' },
+        { id:'c-ai',         lvl:'C4', text:'Use AI to multiply your craft: faster execution, higher quality of work, and shipping what wasn\'t possible before' },
+        { id:'c-artifacts',  lvl:'C4', text:'Produce clear, usable artifacts covering key flows, states, and edge cases with strong visual and interaction fundamentals' },
+        { id:'c-critique',   lvl:'C4', text:'Seek critique early and often, incorporate feedback, and clearly explain what changed and why' },
+        { id:'c-write',      lvl:'C4', text:'Write clearly, document thinking, articulate rationale, and communicate decisions in ways that don\'t require a meeting' },
+        { id:'c-research',   lvl:'C5', text:'Use research and data to ground design decisions — know when to use qualitative vs quantitative inputs' },
+        { id:'c-e2e',        lvl:'C5', text:'Design end-to-end journeys that hold together, including accessibility and edge cases' },
+        { id:'c-quality',    lvl:'C5', text:'Raise interaction and visual quality so the work communicates intent without heavy narration' },
+        { id:'c-prototype',  lvl:'C6', text:'Build complex prototypes — using code, real data, and motion — that validate behavior across branching flows and state changes' },
+        { id:'c-patterns',   lvl:'C6', text:'Design patterns that scale by defining clear interaction rules and component behaviors' },
+        { id:'c-tradeoffs',  lvl:'C6', text:'Make tradeoff calls under real constraints within your ownership area' },
+        { id:'c-bar',        lvl:'C7', text:'Set the craft bar — work others use as the model for interaction, visual, and prototype quality' },
+        { id:'c-durable',    lvl:'C7', text:'Create or evolve durable patterns that unlock new opportunities across products and teams' },
+        { id:'c-ai-model',   lvl:'C7', text:'Model what good AI use looks like in your craft' },
+        { id:'c-direction',  lvl:'C8', text:'Set direction across a product area through a strong point of view that unlocks teams' },
+        { id:'c-experience', lvl:'C8', text:'Define experience rules across your area that multiple teams apply independently' },
+      ]
+    },
+    responsibilities: {
+      label: 'Responsibilities',
+      items: [
+        { id:'r-trust',     lvl:'C4', text:'Build trust through early, proactive feedback that prevents rework' },
+        { id:'r-ground',    lvl:'C4', text:'Ground decisions by talking to users and learning their business context' },
+        { id:'r-intent',    lvl:'C4', text:'Ensure what ships exceeds design intent — collaborate with engineering and contribute pull requests' },
+        { id:'r-ai-acct',   lvl:'C4', text:'Take responsibility for your output, AI-generated or not — verify it\'s correct before shipping; never pass off slop' },
+        { id:'r-document',  lvl:'C5', text:'Document and share decisions, rationale, and open questions so teams can execute with less churn' },
+        { id:'r-e2e',       lvl:'C5', text:'Protect end-to-end intent through implementation — coordinate across disciplines and close gaps during build' },
+        { id:'r-align',     lvl:'C6', text:'Drive progress by aligning partners, unblocking constraints, and validating the riskiest assumptions early' },
+        { id:'r-direction', lvl:'C6', text:'Confidently articulate your team\'s strategic direction' },
+        { id:'r-faster',    lvl:'C6', text:'Make the team faster over time by leaving shared assets and documentation better than you found them' },
+        { id:'r-judgment',  lvl:'C7', text:'Improve the team\'s design judgment by running better critiques and sharper tradeoff conversations' },
+        { id:'r-product',   lvl:'C7', text:'Influence product direction by translating experience insights into strategic opportunities and risks' },
+        { id:'r-quality',   lvl:'C8', text:'Set shared quality bars and help teams meet them through reviews, decisions, and follow-through' },
+        { id:'r-hiring',    lvl:'C8', text:'Strengthen the discipline by developing designers beyond your team and codifying what great looks like from shipped work' },
+      ]
+    },
+    ambition: {
+      label: 'Ambition',
+      items: [
+        { id:'a-floor',    lvl:'C4', text:'Treat project requirements as a minimum floor. Be ambitious about raising the ceiling' },
+        { id:'a-standards',lvl:'C6', text:'Challenge existing standards when they no longer serve merchants' },
+        { id:'a-talent',   lvl:'C7', text:'Attract top talent and raise the hiring bar' },
+        { id:'a-spending', lvl:'C8', text:'Spend Shopify\'s resources like they\'re yours, including other people\'s time' },
+        { id:'a-inspire',  lvl:'C9', text:'Inspire the discipline — drive the expansion of what\'s possible for your craft with AI; set the pace to get there fast' },
+      ]
+    }
+  },
+
+  Marketing: {
+    craft: {
+      label: 'Craft Skills',
+      items: [
+        { id:'c-execute',   lvl:'C5', text:'Execute and learn quickly on projects with guidance' },
+        { id:'c-learn',     lvl:'C5', text:'Continuously learn about your constantly evolving craft' },
+        { id:'c-ai',        lvl:'C5', text:'Use AI to multiply your craft: faster execution, higher quality of work, and shipping what wasn\'t possible before' },
+        { id:'c-ownership', lvl:'C6', text:'Take ownership on scoped projects and outcomes' },
+        { id:'c-selflearn', lvl:'C6', text:'Invest in self-directed continuous learning about our constantly evolving craft' },
+        { id:'c-quality',   lvl:'C6', text:'Hold the quality bar for your craft development' },
+        { id:'c-expert',    lvl:'C7', text:'Solve high-value problems with deep subject matter expertise' },
+        { id:'c-teach',     lvl:'C7', text:'Stay up-to-date on changes in craft and teach others' },
+        { id:'c-automate',  lvl:'C7', text:'Embrace automation changes and identify areas for process improvement' },
+        { id:'c-ai-model',  lvl:'C7', text:'Model what good AI use looks like in your craft' },
+        { id:'c-bleedingedge', lvl:'C8', text:'Pursue the bleeding edge of our constantly evolving craft' },
+        { id:'c-autonomous',   lvl:'C8', text:'Execute autonomously on high-value and ambiguous problems with deep subject matter expertise' },
+      ]
+    },
+    responsibilities: {
+      label: 'Responsibilities',
+      items: [
+        { id:'r-trust',     lvl:'C5', text:'Constantly charge the trust battery to improve the team' },
+        { id:'r-comms',     lvl:'C5', text:'Share timely and accurate information to lead and team' },
+        { id:'r-root',      lvl:'C5', text:'Seek to understand the root problem to learn potential solutions' },
+        { id:'r-ai-acct',   lvl:'C5', text:'Take responsibility for your output, AI-generated or not — verify it\'s correct before shipping; never pass off slop' },
+        { id:'r-influence', lvl:'C6', text:'Influence others through critical thinking and clear communication' },
+        { id:'r-data',      lvl:'C7', text:'Leverage data across multiple dimensions to size impact and explain ideas' },
+        { id:'r-synthesize',lvl:'C7', text:'Share extremely well synthesized, crisp information within team and stakeholders' },
+        { id:'r-collab',    lvl:'C8', text:'Drive positive collaboration across teams and stakeholders — leverage multiple disciplines to push work forward' },
+        { id:'r-storytell', lvl:'C8', text:'Leverage complex data for effective storytelling to size impact and explain ideas' },
+        { id:'r-hiring',    lvl:'C8', text:'Be active in attracting top talent and help interview and assess candidates' },
+      ]
+    },
+    ambition: {
+      label: 'Ambition',
+      items: [
+        { id:'a-impact',   lvl:'C5', text:'Contribute to impactful projects, showing ambition to achieve new heights' },
+        { id:'a-culture',  lvl:'C5', text:'Aspire to a high quality bar and contribute to positive culture within the team' },
+        { id:'a-goals',    lvl:'C5', text:'Acknowledge business goals and understand how work ladders up' },
+        { id:'a-floor',    lvl:'C6', text:'Treat project requirements as a minimum floor — be ambitious about raising the ceiling' },
+        { id:'a-bridges',  lvl:'C6', text:'Develop cross-functional bridges to identify collaboration opportunities across teams' },
+        { id:'a-own',      lvl:'C7', text:'Own the success of projects — take accountability to push the boundaries of what is possible' },
+        { id:'a-highstakes',lvl:'C8', text:'Consistently drive high-stakes projects to success, aiming to shatter the ceiling of what\'s possible' },
+        { id:'a-inspire',  lvl:'C9', text:'Inspire the discipline — drive the expansion of what\'s possible for your craft with AI; set the pace to get there fast' },
+      ]
+    }
+  },
+
+  Custom: {
+    craft: {
+      label: 'Craft Skills',
+      items: [
+        { id:'c-custom1', lvl:'', text:'[Paste your craft skill from os.shopify.io — or describe it in your own words]' },
+        { id:'c-custom2', lvl:'', text:'[Add another craft skill]' },
+        { id:'c-ai',      lvl:'', text:'Use AI to multiply your craft: faster execution, higher quality of work, and shipping what wasn\'t possible before' },
+      ]
+    },
+    responsibilities: {
+      label: 'Responsibilities',
+      items: [
+        { id:'r-custom1', lvl:'', text:'[Paste your responsibility from os.shopify.io]' },
+        { id:'r-custom2', lvl:'', text:'[Add another responsibility]' },
+        { id:'r-ai-acct', lvl:'', text:'Take responsibility for your output, AI-generated or not — verify it\'s correct before shipping; never pass off slop' },
+      ]
+    },
+    ambition: {
+      label: 'Ambition',
+      items: [
+        { id:'a-custom1', lvl:'', text:'[Paste your ambition/growth expectation from os.shopify.io]' },
+        { id:'a-inspire', lvl:'', text:'Inspire your discipline — drive the expansion of what\'s possible for your craft with AI' },
+      ]
+    }
+  },
+
   Product: {
     craft: {
       label: 'Craft Skills',
@@ -436,7 +563,7 @@ const STATE_VERSION = 1;
 const SITE_KEY = 'outcomes-tracker-v1';
 
 function makeDefault() {
-  const SKILLS = SKILLS_BY_DISCIPLINE[CONFIG.discipline] || SKILLS_BY_DISCIPLINE.TPM;
+  const SKILLS = SKILLS_BY_DISCIPLINE[CONFIG.discipline] || SKILLS_BY_DISCIPLINE.Custom;
   const skills = {};
   Object.values(SKILLS).forEach(cat => cat.items.forEach(s => { skills[s.id] = []; }));
   return {
@@ -980,7 +1107,7 @@ function renderSkills() {
   const container = document.getElementById('skill-groups');
   if (!container) return;
   container.innerHTML = '';
-  const SKILLS = SKILLS_BY_DISCIPLINE[CONFIG.discipline] || SKILLS_BY_DISCIPLINE.TPM;
+  const SKILLS = SKILLS_BY_DISCIPLINE[CONFIG.discipline] || SKILLS_BY_DISCIPLINE.Custom;
   const userLvl = levelNum(CONFIG.level);
 
   Object.entries(SKILLS).forEach(([catKey, cat]) => {
