@@ -202,7 +202,7 @@ const CONFIG = {
   level: 'C7',              // e.g. 'C5' 'C6' 'C7' 'C8' 'C9'
   targetLevel: 'C8',        // optional — shows "C7 → C8" in header
   org: 'Your Team',
-  cycle: 'May–Oct 2026',
+  cycle: null,              // auto-detected from date (Apr–Oct or Nov–Apr) — or set manually e.g. 'Apr–Oct 2026'
 
   // ── Context blurb ───────────────────────────────────────────────────────────
   // Shown in sidebar. Helps newer managers understand your full background.
@@ -679,6 +679,16 @@ async function saveGitHubToken(token) {
 }
 
 // ── Render header ──────────────────────────────────────────────────────────────
+// Shopify mastery cycles: H1 = April–October, H2 = November–April
+function detectCycle() {
+  const now = new Date();
+  const m = now.getMonth() + 1; // 1–12
+  const y = now.getFullYear();
+  if (m >= 4 && m <= 9) return `Apr–Oct ${y}`;
+  if (m >= 10)          return `Nov ${y}–Apr ${y + 1}`;
+  return                       `Nov ${y - 1}–Apr ${y}`;
+}
+
 function renderHeader(name, email) {
   const t = document.getElementById('header-title');
   const s = document.getElementById('header-sub');
@@ -687,7 +697,7 @@ function renderHeader(name, email) {
   if (s) {
     s.innerHTML = `<span style="color:var(--blue)">${CONFIG.org}</span>
       <span style="color:var(--text-dimmer)">·</span>
-      <span>${CONFIG.cycle}</span>
+      <span>${CONFIG.cycle || detectCycle()}</span>
       <span style="color:var(--text-dimmer)">·</span>
       <span style="color:var(--text-dimmer);font-family:var(--mono);font-size:11px;">${CONFIG.discipline}</span>`;
   }
@@ -906,7 +916,7 @@ function renderSidebar() {
   ctx.innerHTML = `
     <div class="card-header"><div class="card-title">Cycle context</div></div>
     <div class="card-body">
-      <div class="info-row"><span class="info-key">Cycle</span><span class="info-val">${CONFIG.cycle}</span></div>
+      <div class="info-row"><span class="info-key">Cycle</span><span class="info-val">${CONFIG.cycle || detectCycle()}</span></div>
       <div class="info-row"><span class="info-key">Discipline</span><span class="info-val">${CONFIG.discipline}</span></div>
       <div class="info-row"><span class="info-key">Level</span><span class="info-val">${CONFIG.level}</span></div>
       ${CONFIG.targetLevel ? `<div class="info-row"><span class="info-key">Target</span><span class="info-val gold">${CONFIG.targetLevel}</span></div>` : ''}
