@@ -73,10 +73,35 @@ The site auto-loads the right OS skills based on your discipline:
 
 Skills at and above your level are shown — you can track stretch signals before you're formally there.
 
+## Privacy — controlling who can see your site
+
+Quick sites are already Shopifolk-only (Shopify SSO required — not accessible to the public internet). But any Shopify employee who has your URL can open it.
+
+To restrict access to specific people, set `allowlist` in CONFIG:
+
+```js
+allowlist: ['manager@shopify.com', 'skip@shopify.com'],
+```
+
+- **You are always allowed** — no need to add yourself.
+- Anyone not on the list sees a lock screen with no content.
+- Set `allowlist: []` (the default) to allow any Shopifolk with the URL.
+
+To add someone later (e.g. before a calibration conversation):
+1. Edit `allowlist` in `index.html`
+2. Run `quick deploy . your-site-name --force`
+
+Common patterns:
+- **Just you and your manager**: `['manager@shopify.com']`
+- **Manager + skip**: `['manager@shopify.com', 'skip@shopify.com']`
+- **Open to your whole team**: `[]`
+
 ## Sharing
 
-Keep your personal site link private — it has your performance data. Share *this template repo* with colleagues so they can build their own.
+Share this GitHub link with colleagues — they clone it and set up their own. Your personal site URL stays private.
+
+`https://github.com/karissagenovese/outcomes-tracker`
 
 ## Questions
 
-Reach out to Karissa Genovese or open an issue in the repo.
+Open an issue in the repo or reach out to Karissa Genovese.
