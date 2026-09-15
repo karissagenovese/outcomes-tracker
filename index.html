@@ -198,8 +198,9 @@ const CONFIG = {
   // Leave name/email null to auto-fill from quick.id (Shopify SSO)
   name: null,
   email: null,
-  discipline: 'TPM',        // 'TPM' | 'SWE' | 'Product' | 'Design' | 'Marketing' | 'Custom'
-                             // Skills pulled from os.shopify.io — see your full framework there
+  discipline: 'TPM',        // Crafter: 'TPM' | 'SWE' | 'Product' | 'Design' | 'Marketing' | 'PMM' | 'ProdOps'
+                             //  Manager: use 'Custom' + paste your M-track skills from os.shopify.io
+                             // Full frameworks at os.shopify.io
   level: 'C7',              // e.g. 'C5' 'C6' 'C7' 'C8' 'C9'
   targetLevel: 'C8',        // optional — shows "C7 → C8" in header
   org: 'Your Team',
@@ -481,6 +482,113 @@ const SKILLS_BY_DISCIPLINE = {
         { id:'a-own',      lvl:'C7', text:'Own the success of projects — take accountability to push the boundaries of what is possible' },
         { id:'a-highstakes',lvl:'C8', text:'Consistently drive high-stakes projects to success, aiming to shatter the ceiling of what\'s possible' },
         { id:'a-inspire',  lvl:'C9', text:'Inspire the discipline — drive the expansion of what\'s possible for your craft with AI; set the pace to get there fast' },
+      ]
+    }
+  },
+
+  PMM: {
+    craft: {
+      label: 'Craft Skills',
+      items: [
+        { id:'c-improve',    lvl:'C4', text:'Continuously improve your craft skills' },
+        { id:'c-selfreliant',lvl:'C4', text:'Be self reliant and resourceful, doing important work at a fast pace' },
+        { id:'c-audience',   lvl:'C4', text:'Deeply understand the audience for your work' },
+        { id:'c-ai',         lvl:'C4', text:'Use AI to multiply your craft: faster execution, higher quality of work, and shipping what wasn\'t possible before' },
+        { id:'c-strategy',   lvl:'C5', text:'Craft content and strategies that are impactful and create value for Shopify' },
+        { id:'c-fundamentals',lvl:'C5', text:'Demonstrate deep command of the fundamentals — marketing channel strategy, pricing, packaging, and KPIs' },
+        { id:'c-fit',        lvl:'C5', text:'Analyze user needs to understand product marketing fit, marketing value and the competitive environment' },
+        { id:'c-storytell',  lvl:'C6', text:'Demonstrate exceptional communication, presentation, and storytelling skills' },
+        { id:'c-tradeoffs',  lvl:'C6', text:'Navigate constraints while effectively communicating trade-offs and results' },
+        { id:'c-predict',    lvl:'C6', text:'Predict and assess the impact of your work effectively' },
+        { id:'c-insights',   lvl:'C6', text:'Utilize market insights to challenge assumptions and drive innovative solutions' },
+        { id:'c-highvalue',  lvl:'C7', text:'Frame and solve high-value problems within an area or product with a solid understanding of the Shopify ecosystem' },
+        { id:'c-competitive',lvl:'C7', text:'Show expertise in the competitive landscape and merchant frustrations' },
+        { id:'c-ai-model',   lvl:'C7', text:'Model what good AI use looks like in your craft' },
+        { id:'c-kpidata',    lvl:'C8', text:'Focus on marketing strategies and KPIs, leveraging data to make improvements' },
+      ]
+    },
+    responsibilities: {
+      label: 'Responsibilities',
+      items: [
+        { id:'r-trust',    lvl:'C4', text:'Build trust by proactively giving and seeking feedback' },
+        { id:'r-quality',  lvl:'C4', text:'Maintain quality work, down to the pixel/letter, from prototype through release' },
+        { id:'r-voice',    lvl:'C4', text:'Reflect Shopify\'s values, tone, and voice in all output' },
+        { id:'r-messaging',lvl:'C4', text:'Develop messaging frameworks, value propositions, and positioning' },
+        { id:'r-ai-acct',  lvl:'C4', text:'Take responsibility for your output, AI-generated or not — verify it\'s correct before shipping; never pass off slop' },
+        { id:'r-gtm',      lvl:'C5', text:'Produce innovative stories and go-to-market strategies that drive results' },
+        { id:'r-campaigns', lvl:'C5', text:'Develop and execute small to medium campaigns, contributing to creative briefs and owning campaign KPIs' },
+        { id:'r-judgment', lvl:'C6', text:'Make good decisions and be right often' },
+        { id:'r-metrics',  lvl:'C6', text:'Own marketing metrics across multiple products and campaigns' },
+        { id:'r-risks',    lvl:'C6', text:'Take risks and big swings to achieve high quality and impact' },
+        { id:'r-align',    lvl:'C7', text:'Drive cross-functional, cross-discipline, and stakeholder coordination' },
+        { id:'r-portfolio',lvl:'C7', text:'Own marketing metrics at the portfolio/team level' },
+        { id:'r-pace',     lvl:'C7', text:'Set a fast pace for the team through ruthless prioritization' },
+        { id:'r-hiring',   lvl:'C7', text:'Proactively lead and mentor team mates; be active in attracting top talent' },
+        { id:'r-quality2', lvl:'C8', text:'Raise quality standards by modelling and evolving Shopify\'s approach through hands-on craftsmanship' },
+        { id:'r-impact',   lvl:'C8', text:'Take responsibility for the business impact, product success, and creative quality within and beyond your product area' },
+      ]
+    },
+    ambition: {
+      label: 'Ambition',
+      items: [
+        { id:'a-floor',    lvl:'C4', text:'Treat project requirements as a minimum floor. Be ambitious about exploring directions and raising the ceiling' },
+        { id:'a-innovate', lvl:'C4', text:'Proactively create relevant and innovative solutions' },
+        { id:'a-pitchin',  lvl:'C4', text:'Pitch in and do whatever it takes to support RnD in building the best products, and sales in selling' },
+        { id:'a-ortho',    lvl:'C7', text:'Challenge orthodoxy and apply first-principles thinking' },
+        { id:'a-transform',lvl:'C7', text:'Drive new and innovative creative that pushes the envelope and helps Shopify stand out' },
+        { id:'a-hiring',   lvl:'C7', text:'Be active in attracting top talent and help interview and assess candidates' },
+        { id:'a-elevate',  lvl:'C8', text:'Elevate what other PMM crafters can achieve; maximize team performance' },
+        { id:'a-inspire',  lvl:'C9', text:'Inspire the discipline — drive the expansion of what\'s possible for your craft with AI; set the pace to get there fast' },
+      ]
+    }
+  },
+
+  ProdOps: {
+    craft: {
+      label: 'Craft Skills',
+      items: [
+        { id:'c-urgency',  lvl:'C6', text:'Execute Shopify\'s mission with urgency. Timelines are a floor' },
+        { id:'c-fluency',  lvl:'C6', text:'Develop genuine fluency in Shopify\'s product, principles, engineering systems and RnD priorities' },
+        { id:'c-systems',  lvl:'C6', text:'Build repeatable operating systems, not one-off fixes' },
+        { id:'c-signal',   lvl:'C6', text:'Surface the right signal to help product leaders make faster, better decisions. Create clarity, not noise' },
+        { id:'c-protect',  lvl:'C6', text:'Prioritize ruthlessly. Protect product teams from coordination overhead' },
+        { id:'c-pov',      lvl:'C6', text:'Have a point of view. Bring opinions on how product teams should operate' },
+        { id:'c-ai',       lvl:'C6', text:'Use AI to multiply your craft: faster execution, higher quality of work, and shipping what wasn\'t possible before' },
+        { id:'c-systems2', lvl:'C7', text:'Think in systems and from first principles' },
+        { id:'c-horizontal',lvl:'C7', text:'Work horizontally across RnD. Build operating architecture that makes a whole product area move' },
+        { id:'c-altitude', lvl:'C7', text:'Intervene at the right altitude — from flagging an issue to taking full ownership to solve the root cause' },
+        { id:'c-anticipate',lvl:'C7', text:'Anticipate issues before they derail RnD initiatives — staffing, aim alignment, feedback loops, decision velocity' },
+        { id:'c-ai-model', lvl:'C7', text:'Model what good AI use looks like in your craft' },
+        { id:'c-pioneer',  lvl:'C8', text:'Pioneer AI systems that transform operational capabilities — what was impossible becomes possible' },
+        { id:'c-bar',      lvl:'C8', text:'Define what great Product Operations looks like at Shopify. Hold the bar' },
+        { id:'c-teach',    lvl:'C8', text:'Teach the craft. Lead by example, not just direction' },
+      ]
+    },
+    responsibilities: {
+      label: 'Responsibilities',
+      items: [
+        { id:'r-trust',   lvl:'C6', text:'Charge your trust battery. Do what you say, say what you do' },
+        { id:'r-own',     lvl:'C6', text:'Own your operating systems end to end' },
+        { id:'r-judgment',lvl:'C6', text:'Exercise judgment. Flag risks with a proposed path forward' },
+        { id:'r-align',   lvl:'C6', text:'Drive cross-functional coordination across RnD. Make alignment happen' },
+        { id:'r-ai-acct', lvl:'C6', text:'Take responsibility for your output, AI-generated or not — verify it\'s correct before shipping; never pass off slop' },
+        { id:'r-signal',  lvl:'C7', text:'Surface the right signal across ambiguous problem spaces' },
+        { id:'r-own2',    lvl:'C7', text:'Own outcomes end to end. Escalation ends with you' },
+        { id:'r-commons', lvl:'C7', text:'Tend to the commons. Minimize process overhead. Don\'t let coordination debt accumulate' },
+        { id:'r-faster',  lvl:'C7', text:'Create a 10x environment. Make the product teams around you faster and more effective' },
+        { id:'r-hiring',  lvl:'C8', text:'Hire, retain, and coach world-class Product Operations crafters' },
+      ]
+    },
+    ambition: {
+      label: 'Ambition',
+      items: [
+        { id:'a-first',   lvl:'C6', text:'Put Shopify first. Your domain is the vehicle, not the destination' },
+        { id:'a-balance', lvl:'C6', text:'Find the balance between speed, risk, and execution' },
+        { id:'a-influence',lvl:'C6', text:'Influence with evidence and logic' },
+        { id:'a-health',  lvl:'C7', text:'Build for Shopify\'s long-term product health, not just current sprint velocity' },
+        { id:'a-roadmap', lvl:'C7', text:'Orchestrate roadmap prioritization and execution across RnD teams. Aims, dependencies, and tradeoffs stay visible and aligned' },
+        { id:'a-lead',    lvl:'C8', text:'Take the lead on whatever moves your products forward, even when it looks like someone else\'s job' },
+        { id:'a-inspire', lvl:'C9', text:'Inspire the discipline — drive the expansion of what\'s possible for your craft with AI; set the pace to get there fast' },
       ]
     }
   },
