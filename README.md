@@ -71,7 +71,7 @@ The site auto-loads the right OS skills based on your discipline:
 - **SWE** — direct from `vault.shopify.io/disciplines/145-Software-Engineering`
 - **Product** — direct from `vault.shopify.io/disciplines/Product-Management`
 
-Skills at and above your level are shown — you can track stretch signals before you're formally there.
+By default only your current level's skills are shown. Set `targetLevel` to one level above to also see those skills (dimmed) — useful if you're working toward a scope change.
 
 ## Privacy — controlling who can see your site
 

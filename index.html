@@ -1116,6 +1116,7 @@ function renderSkills() {
   container.innerHTML = '';
   const SKILLS = SKILLS_BY_DISCIPLINE[CONFIG.discipline] || SKILLS_BY_DISCIPLINE.Custom;
   const userLvl = levelNum(CONFIG.level);
+  const targetLvl = CONFIG.targetLevel ? levelNum(CONFIG.targetLevel) : 0;
 
   Object.entries(SKILLS).forEach(([catKey, cat]) => {
     const col = document.createElement('div');
@@ -1127,6 +1128,13 @@ function renderSkills() {
 
     cat.items.forEach(skill => {
       const skillLvl = levelNum(skill.lvl);
+      // Show current level always; show targetLevel if set; hide everything else.
+      // Skills with no level tag (Custom discipline) always show.
+      if (skill.lvl) {
+        const isCurrentLevel = skillLvl === userLvl;
+        const isTargetLevel  = targetLvl > 0 && skillLvl === targetLvl;
+        if (!isCurrentLevel && !isTargetLevel) return;
+      }
       const entries = state.skills[skill.id] || [];
       const det = document.createElement('details');
       det.className = 'skill-row';
@@ -1137,8 +1145,8 @@ function renderSkills() {
       const lvlBadge = document.createElement('span');
       lvlBadge.className = 'skill-level ' + skill.lvl.toLowerCase();
       lvlBadge.textContent = skill.lvl;
-      // Dim skills above current level (aspirational)
-      if (skillLvl > userLvl) lvlBadge.style.opacity = '0.6';
+      // Dim target-level skills — visible but aspirational
+      if (targetLvl > 0 && skillLvl === targetLvl) lvlBadge.style.opacity = '0.55';
       const skillTxt = document.createElement('span');
       skillTxt.className = 'skill-text-label';
       skillTxt.textContent = skill.text;
@@ -1332,7 +1340,7 @@ function setupImportModal() {
     <div class="skills-section-header">
       <div>
         <div class="skills-section-title">Skills Evidence Log</div>
-        <div class="skills-section-sub">Click any skill to expand · add evidence as it happens · skills beyond your level shown in amber (aspirational)</div>
+        <div class="skills-section-sub">Click any skill to expand · add evidence as it happens · your level’s skills shown here — set targetLevel in CONFIG to also see the level above</div>
       </div>
     </div>
     <div class="skill-groups" id="skill-groups"></div>
