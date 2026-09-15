@@ -187,6 +187,13 @@
      ═══════════════════════════════════════════════════════════════════════════ -->
 <script>
 const CONFIG = {
+  // ── Access control ─────────────────────────────────────────────────────────
+  // Quick sites are already Shopifolk-only (Shopify SSO required).
+  // Set allowlist to restrict further to specific email addresses.
+  // The site owner is always allowed — no need to add yourself.
+  // Leave empty [] to allow any Shopify employee who has the URL.
+  allowlist: [],             // e.g. ['manager@shopify.com', 'skip@shopify.com']
+
   // ── Identity ────────────────────────────────────────────────────────────────
   // Leave name/email null to auto-fill from quick.id (Shopify SSO)
   name: null,
@@ -1252,11 +1259,34 @@ function setupImportModal() {
   let email = CONFIG.email || '';
 
   // Auto-fill identity from quick.id if not configured
+  let visitorEmail = '';
   try {
     const user = await quick.id.get();
     if (!CONFIG.name && user.name) name = user.name;
     if (!CONFIG.email && user.email) email = user.email;
+    visitorEmail = user.email || '';
   } catch(e) {}
+
+  // ── Access gate ────────────────────────────────────────────────────────────
+  // If allowlist is set, only listed emails + the site owner can view.
+  const allowlist = Array.isArray(CONFIG.allowlist) ? CONFIG.allowlist.map(e => e.toLowerCase().trim()) : [];
+  if (allowlist.length > 0) {
+    const ownerEmail = (CONFIG.email || email || '').toLowerCase().trim();
+    const visitor = visitorEmail.toLowerCase().trim();
+    const allowed = visitor === ownerEmail || allowlist.includes(visitor);
+    if (!allowed) {
+      document.body.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#0a0a0a;">
+          <div style="text-align:center;color:#888;font-family:system-ui,sans-serif;">
+            <div style="font-size:32px;margin-bottom:16px;">🔒</div>
+            <div style="font-size:18px;font-weight:600;color:#ccc;margin-bottom:8px;">This site is private.</div>
+            <div style="font-size:14px;">You don't have access. Ask the owner to add your email to their allowlist.</div>
+            <div style="font-size:12px;margin-top:16px;color:#555;">${visitor || 'unknown'}</div>
+          </div>
+        </div>`;
+      return;
+    }
+  }
 
   try { await initDb(); } catch(e) { setSaveStatus('saved', 'Saved locally'); }
   await initGitHubToken();
