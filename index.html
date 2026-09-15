@@ -121,6 +121,8 @@
     .skill-level{font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
     .skill-level.c7,.skill-level.c5,.skill-level.c6{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border);}
     .skill-level.c8,.skill-level.c9,.skill-level.c10{background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);}
+    .skill-level.m4,.skill-level.m5{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border);}
+    .skill-level.m6,.skill-level.m7{background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);}
     .skill-text-label{font-size:12px;color:var(--text-dim);line-height:1.4;flex:1;}
     .skill-row[open] .skill-text-label{color:var(--text);}
     .skill-summary-right{display:flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0;}
@@ -199,7 +201,7 @@ const CONFIG = {
   name: null,
   email: null,
   discipline: 'TPM',        // Crafter: 'TPM' | 'SWE' | 'Product' | 'Design' | 'Marketing' | 'PMM' | 'ProdOps'
-                             //  Manager: use 'Custom' + paste your M-track skills from os.shopify.io
+                             //  Manager: 'Manager' (M4/M5/M6 — works for all management disciplines)
                              // Full frameworks at os.shopify.io
   level: 'C7',              // e.g. 'C5' 'C6' 'C7' 'C8' 'C9'
   targetLevel: 'C8',        // optional — shows "C7 → C8" in header
@@ -619,6 +621,67 @@ const SKILLS_BY_DISCIPLINE = {
     }
   },
 
+  // Manager track — applies to all management disciplines (TPM, SWE, PM, Design, etc.)
+  // M4 and M5 share the same Vault OS expectations. M6 adds director-level items.
+  Manager: {
+    ownership: {
+      label: 'Ownership',
+      items: [
+        { id:'o-obsess',    lvl:'M5', text:'Be obsessed with all aspects of your team\'s work. Dive deep into the details. Help your team steer around unseen pitfalls.' },
+        { id:'o-acct',      lvl:'M5', text:'Take accountability for mistakes and learn from them. Be responsible for your team\'s mistakes.' },
+        { id:'o-zeitgeist', lvl:'M5', text:'Keep up with the zeitgeist and learn everything about your discipline.' },
+        { id:'o-strengths', lvl:'M5', text:'Lean on your strengths, don\'t delegate them.' },
+        { id:'o-shopify1st',lvl:'M5', text:'Make decisions that put Shopify first (Shopify > Org > Team > Self).' },
+        { id:'o-impact',    lvl:'M5', text:'Know the impact of team decisions and take risks.' },
+        { id:'o-surface',   lvl:'M5', text:'Surface problems and gaps quickly with proposed solutions.' },
+        { id:'o-hard',      lvl:'M5', text:'Embrace hard things — get stronger because of them.' },
+        { id:'o-highstakes',lvl:'M5', text:'Shoulder high stakes decisions made across the team and area.' },
+        { id:'o-bar',       lvl:'M5', text:'Set the bar high for direct reports and hold them accountable.' },
+        { id:'o-direction', lvl:'M5', text:'Own the entire team\'s direction, delivery, and results.' },
+        { id:'o-commons',   lvl:'M5', text:'Tend to the commons.' },
+        { id:'o-ai-acct',   lvl:'M5', text:'Take ownership for your team\'s output, AI-generated or not. Verify what ships, recognize impactful AI use, and call out slop.' },
+        { id:'o-trust',     lvl:'M6', text:'Responsible for the team\'s trust in leadership. You represent Shopify\'s senior leadership.' },
+        { id:'o-irrev',     lvl:'M6', text:'Make and own irreversible, high stakes decisions.' },
+        { id:'o-aim',       lvl:'M6', text:'Own and drive the aim for the team.' },
+      ]
+    },
+    buildTeam: {
+      label: 'Build Team',
+      items: [
+        { id:'b-craft',     lvl:'M5', text:'Push your team to hone their craft. Be clear about what impactful AI use looks like.' },
+        { id:'b-direct',    lvl:'M5', text:'Be direct — say the thing.' },
+        { id:'b-trust',     lvl:'M5', text:'Build high trust through regular communication of expectations and feedback.' },
+        { id:'b-perf',      lvl:'M5', text:'Ensure a high performance team via addition and subtraction. Before adding headcount, prove AI can\'t.' },
+        { id:'b-conflict',  lvl:'M5', text:'Resolve unhealthy conflict.' },
+        { id:'b-resource',  lvl:'M5', text:'Be resourceful and leverage your team effectively.' },
+        { id:'b-challenge', lvl:'M5', text:'Intentionally challenge the team on ideas, mindsets and assumptions.' },
+        { id:'b-toil',      lvl:'M5', text:'Remove distractions and barriers to productivity. Identify and eliminate toil promptly.' },
+        { id:'b-talent',    lvl:'M5', text:'Be active in attracting top talent and help interview and assess candidates.' },
+        { id:'b-culture',   lvl:'M5', text:'Propagate and maintain the culture of your org.' },
+        { id:'b-inspire',   lvl:'M6', text:'Inspire, build and maintain energy in your org around Shopify\'s mission.' },
+        { id:'b-invest',    lvl:'M6', text:'Advocate and action investments that have Shopify-wide impact.' },
+        { id:'b-bench',     lvl:'M6', text:'Develop and maintain a strong leadership bench and succession plan.' },
+      ]
+    },
+    driveResults: {
+      label: 'Drive Results',
+      items: [
+        { id:'d-bestidea',  lvl:'M5', text:'Invite all to challenge ideas, including their own. Make sure the best idea wins.' },
+        { id:'d-priority',  lvl:'M5', text:'Ruthlessly prioritize, keep the pace high and the team aligned.' },
+        { id:'d-critical',  lvl:'M5', text:'Prioritize mission critical work and stop everything else.' },
+        { id:'d-ship',      lvl:'M5', text:'Set aggressive timelines and ship weekly.' },
+        { id:'d-firstprin', lvl:'M5', text:'Use first principles to solve important problems and avoid orthodoxy traps.' },
+        { id:'d-decisions', lvl:'M5', text:'Make important decisions together and understand every detail.' },
+        { id:'d-2ndorder',  lvl:'M5', text:'Anticipate 2nd and 3rd order consequences of choices.' },
+        { id:'d-maxima',    lvl:'M5', text:'Pull teams out of local maxima, aim for Shopify\'s global maxima.' },
+        { id:'d-ai',        lvl:'M5', text:'Multiply your team\'s impact with AI. Aim for what wasn\'t possible before.' },
+        { id:'d-ai-pace',   lvl:'M5', text:'Drive the expansion of what\'s possible for your domain with AI. Set the pace to get there fast.' },
+        { id:'d-bigbets',   lvl:'M6', text:'Make big bets that transform Shopify for the better.' },
+        { id:'d-fight',     lvl:'M6', text:'Fight for the right things at the leadership level.' },
+        { id:'d-resources', lvl:'M6', text:'Ruthlessly prioritize your teams\' resources to the most important work.' },
+      ]
+    }
+  },
   Product: {
     craft: {
       label: 'Craft Skills',
@@ -1225,8 +1288,15 @@ async function loadPRs(bodyEl, metaEl, handle, org) {
 
 // ── Skills ─────────────────────────────────────────────────────────────────────
 function levelNum(lvl) {
-  const m = lvl.match(/\d+/);
-  return m ? parseInt(m[0]) : 0;
+  if (!lvl) return 0;
+  const isManager = /^[Mm]/.test(lvl);
+  const n = parseInt(lvl.match(/\d+/)?.[0] || 0);
+  if (isManager) {
+    // Vault OS doesn't separate M4 from M5 — both share M5 expectations.
+    // Encode M-track as 100+N so M5 !== C5. Map M4 → effective M5.
+    return 100 + (n < 5 ? 5 : n);
+  }
+  return n;
 }
 
 function renderSkills() {
