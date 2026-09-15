@@ -11,6 +11,12 @@ A self-updating performance evidence site for Shopify employees. Works for any d
 - Includes a context blurb for newer managers who don't have your historical background
 - Saves state to `quick.db` (cross-device) with localStorage fallback
 
+## Auto-scan — works with any LLM
+
+You don't need Pi. Open `SCAN-PROMPT.md`, fill in your name, IOs, OS skills, and what to scan, then paste the whole thing into **MANA, Claude, Pi, or any LLM you use**. It will scan your sources and return evidence entries you can paste into your site or keep in a doc.
+
+For your OS skills: go to [os.shopify.io](https://os.shopify.io) → find your discipline → copy the skills for your level → paste them into the prompt. If you're using Pi or MANA with Vault access, the LLM can pull them automatically.
+
 ## Setup — 5 minutes
 
 ### 1. Clone the template
@@ -48,23 +54,13 @@ quick deploy
 
 Your site is live at `my-outcomes-2026.quick.shopify.io`.
 
-### 4. Set up the auto-scan Pi skill
+### 4. Run the scan weekly
 
-The `outcomes-scan` Pi skill scans all your sources weekly and produces evidence entries to paste in.
+**Option A — any LLM (MANA, Claude, Pi, Copilot):**
+Open `SCAN-PROMPT.md`, fill in your info, paste into whatever LLM you use. Done.
 
-Copy the skill to your Pi skills directory:
-```bash
-cp -r outcomes-scan-skill ~/.claude/skills/outcomes-scan
-# or for Pi:
-cp -r outcomes-scan-skill ~/.pi/agent/skills/outcomes-scan
-```
-
-Run it weekly with `/outcomes-scan` in Pi. It will:
-1. Read your CONFIG from the site (or a local `~/.outcomes-config.json`)
-2. Scan Vault, Slack, Fellow, GitHub, Gmail, Google Sheets/Drive
-3. Map findings to your IOs and OS skills
-4. Filter out baseline expectations
-5. Output formatted evidence entries + JSON you can import via the site's Import button
+**Option B — Pi users:**
+The `outcomes-scan` skill in this repo is pre-configured for Pi. Copy it to your skills directory and run `/outcomes-scan`.
 
 ### 5. Connect GitHub (optional)
 
