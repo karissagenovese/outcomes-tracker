@@ -11,6 +11,24 @@ A self-updating evidence site for Shopify employees to track their Intended Outc
 - Includes a context blurb for newer managers who don't have your historical background
 - Saves state to `quick.db` (cross-device) with localStorage fallback
 
+## What this doesn't do — be honest about this
+
+**This tool lowers the cost of not forgetting. It doesn't write your review.**
+
+- **It doesn't generate impact.** The scan finds work you did — PRs merged, decisions made, risks surfaced. If the impact of that work isn't documented somewhere (PR description, Slack post, Vault update), the scan can't infer it. Quantitative metrics (latency reduced by 20%, conversion up 15%) only surface if you wrote them down somewhere.
+
+- **It doesn't write the narrative.** The tool collects evidence. You still have to connect it to outcomes, articulate what changed because of your work, and explain why it mattered. That's the individual's job. The manager's job is to understand the impact — the tool gives you both better raw material.
+
+- **The scan is manual.** You run it every few weeks. If you set up the site and never run the scan, nothing accumulates. The value compounds with consistent use, not from a one-time setup.
+
+- **LLM access determines scan quality.** If your LLM can search Slack, read Fellow transcripts, and query GitHub directly, you get a full scan automatically. If it can't reach those sources, you paste content in manually or skip those sources. Pi works end-to-end. MANA depends on what tools are enabled.
+
+- **Private conversations are invisible.** Work done in Slack DMs, verbal feedback in 1:1s, or decisions made in unrecorded calls won't be captured unless someone wrote them down somewhere. High-trust, low-paper-trail work is systematically underrepresented.
+
+- **Good IOs are a prerequisite.** The scan is only as good as how clearly your IOs are written. Vague IOs return vague evidence. If you and your manager haven't aligned on specific, measurable outcomes, fix that first.
+
+**The honest use case:** run the scan every 2–4 weeks, review what it surfaces, add the entries that are genuinely additive, and write a sentence or two of context for each. By end of cycle you have a curated body of evidence instead of scrambling to remember six months of work.
+
 ## Auto-scan
 
 Open `SCAN-PROMPT.md`, fill in your name, IOs, OS skills, and what to scan, then paste it into any LLM — MANA, Claude, Copilot, whatever you use. It will scan your sources and return evidence entries you can paste into your site or keep in a doc.
