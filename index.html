@@ -1468,6 +1468,7 @@ function setupImportModal() {
 
 // ── Boot ───────────────────────────────────────────────────────────────────────
 (async () => {
+  await new Promise(r => setTimeout(r, 0)); // yield — let DOM finish parsing before rendering
   setSaveStatus('saving', 'Loading…');
   let name = CONFIG.name || 'Your Name';
   let email = CONFIG.email || '';
