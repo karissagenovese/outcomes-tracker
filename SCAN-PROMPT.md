@@ -19,7 +19,8 @@ Discipline: [TPM / Software Engineering / Product Management / UX Design / Marke
 Level: [e.g. C7]
 Target level: [e.g. C8, or leave blank]
 Team / org: [e.g. Retail Hardware & Payments]
-Review cycle: [e.g. May–Oct 2026]
+Review cycle: [e.g. Apr–Oct 2026] — cycle start date: [e.g. April 7, 2026]
+Last scan date: [leave blank if this is your first scan — will scan from cycle start]
 
 ════════════════════════════════════════════
 MY INTENDED OUTCOMES
@@ -51,21 +52,25 @@ Example format:
   Ambition: Inspire your product area / domain
 
 ════════════════════════════════════════════
-WHAT TO SCAN — [last N days, default: 7]
+WHAT TO SCAN
 ════════════════════════════════════════════
-Scan ALL of the following sources. Do not skip any.
+Scan window:
+  - If "Last scan date" above is blank → scan from cycle start date to today (first scan)
+  - If "Last scan date" is filled in → scan from that date to today (incremental scan)
+
+Scan ALL of the following sources for that window. Do not skip any.
 
 Slack:
   - My handle: [e.g. karissa.genovese]
   - Channels: [list the channel names or IDs, e.g. #retail-hardware-slt-connect, #shared-shopify-verifone]
-  - Search: everything I posted in the last [7] days + any direct feedback sent to me
+  - Search: everything I posted in the scan window + any direct feedback sent to me
 
 Vault projects:
   - [Paste Vault project URLs or IDs, e.g. vault.shopify.io/gsd/projects/48932]
   - Look for: status changes, milestones, decisions, blockers resolved, PRs, reviews
 
 Fellow / meeting transcripts:
-  - Scan my meetings from the last [7] days
+  - Scan my meetings in the scan window
   - Look for: decisions I drove, pushbacks I gave, risks I surfaced, quotes about my impact
 
 GitHub:
@@ -74,7 +79,7 @@ GitHub:
   - Look for: PRs authored, PRs reviewed, issues commented on
 
 Gmail / email:
-  - Scan sent mail from last [7] days
+  - Scan sent mail in the scan window
   - Look for: external partner comms, decisions communicated, feedback received
 
 Google Drive / Sheets:
@@ -144,6 +149,9 @@ After the summary, output this JSON block so I can paste it into my outcomes qui
 
 If you find any risks or blockers worth surfacing to leadership, flag them separately
 at the end under ⚠ RISKS SURFACED.
+
+At the very end, output one line:
+  Next scan: update "Last scan date" to [today's date] before your next scan.
 
 ════════════════════════════════════════════
 IMPORTANT NOTES
