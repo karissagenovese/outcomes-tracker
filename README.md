@@ -1,21 +1,21 @@
 # Intended Outcomes Tracker — Quick Site Template
 
-A self-updating performance evidence site for Shopify employees. Works for any discipline (TPM, SWE, Product, Design). Built by Karissa Genovese as a C8 craft-sharing artifact — as Julia Kranjac put it: "You're going to have one more thing for leading the evolution of your craft."
+A self-updating evidence site for Shopify employees to track their Intended Outcomes and OS skills continuously — not just at review time. Works for any discipline: TPM, SWE, Product, Design, Marketing, and more.
 
 ## What this does
 
 - Tracks evidence against your Intended Outcomes (IOs) and OS skills continuously — not just at review time
-- Auto-scans Vault, Slack, Fellow transcripts, GitHub PRs, Gmail, and Google Sheets/Drive weekly via the Pi `outcomes-scan` skill
+- Scans Vault, Slack, Fellow transcripts, GitHub PRs, Gmail, and Google Sheets/Drive — paste the included prompt into any LLM
 - Filters out baseline expectations — only additive, concrete contributions
 - Caps at ~8 entries per skill to demonstrate consistency, not volume
 - Includes a context blurb for newer managers who don't have your historical background
 - Saves state to `quick.db` (cross-device) with localStorage fallback
 
-## Auto-scan — works with any LLM
+## Auto-scan
 
-You don't need Pi. Open `SCAN-PROMPT.md`, fill in your name, IOs, OS skills, and what to scan, then paste the whole thing into **MANA, Claude, Pi, or any LLM you use**. It will scan your sources and return evidence entries you can paste into your site or keep in a doc.
+Open `SCAN-PROMPT.md`, fill in your name, IOs, OS skills, and what to scan, then paste it into any LLM — MANA, Claude, Copilot, whatever you use. It will scan your sources and return evidence entries you can paste into your site or keep in a doc.
 
-For your OS skills: go to [os.shopify.io](https://os.shopify.io) → find your discipline → copy the skills for your level → paste them into the prompt. If you're using Pi or MANA with Vault access, the LLM can pull them automatically.
+For your OS skills: go to [os.shopify.io](https://os.shopify.io) → find your discipline → copy the skills for your level → paste them into the prompt. LLMs with Vault access (MANA, Claude, Pi) can pull them automatically.
 
 ## Setup — 5 minutes
 
@@ -56,11 +56,9 @@ Your site is live at `my-outcomes-2026.quick.shopify.io`.
 
 ### 4. Run the scan weekly
 
-**Option A — any LLM (MANA, Claude, Pi, Copilot):**
-Open `SCAN-PROMPT.md`, fill in your info, paste into whatever LLM you use. Done.
+Open `SCAN-PROMPT.md`, fill in your info, paste into any LLM. Done.
 
-**Option B — Pi users:**
-The `outcomes-scan` skill in this repo is pre-configured for Pi. Copy it to your skills directory and run `/outcomes-scan`.
+If you use Pi, an `outcomes-scan` skill is included — copy it to your skills directory and run `/outcomes-scan` for a fully automated scan.
 
 ### 5. Connect GitHub (optional)
 
@@ -73,7 +71,7 @@ The site auto-loads the right OS skills based on your discipline:
 - **SWE** — direct from `vault.shopify.io/disciplines/145-Software-Engineering`
 - **Product** — direct from `vault.shopify.io/disciplines/Product-Management`
 
-Skills beyond your level are shown but marked clearly so you can track C8 signals before you're there.
+Skills at and above your level are shown — you can track stretch signals before you're formally there.
 
 ## Sharing
 
