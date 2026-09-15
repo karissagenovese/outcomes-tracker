@@ -1505,12 +1505,17 @@ function setupImportModal() {
     }
   }
 
-  try {
-    await Promise.race([initDb(), new Promise(r => setTimeout(r, 3000))]);
-  } catch(e) { setSaveStatus('saved', 'Saved locally'); }
-  try {
-    await Promise.race([initGitHubToken(), new Promise(r => setTimeout(r, 2000))]);
-  } catch(e) {}
+  if (CONFIG.demo) {
+    // Demo/template mode: always use fresh CONFIG data, never load stored state
+    setSaveStatus('saved', 'Template demo — changes not saved');
+  } else {
+    try {
+      await Promise.race([initDb(), new Promise(r => setTimeout(r, 3000))]);
+    } catch(e) { setSaveStatus('saved', 'Saved locally'); }
+    try {
+      await Promise.race([initGitHubToken(), new Promise(r => setTimeout(r, 2000))]);
+    } catch(e) {}
+  }
 
   renderHeader(name, email);
   renderIOs();
